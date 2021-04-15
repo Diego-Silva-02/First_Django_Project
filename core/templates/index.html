@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Django 1 - Index</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <center>
+        <h1>Index</h1>
+
+        <img src="{% static 'images/django.png' %}"/>
+
+        <h2>{{ curso }}</h2>
+
+        <p>{{ outro }}</p>
+
+        <strong>Hello mermão!</strong>
+
+        <table> <!-- Tabela -->
+            <thead> <!-- Cabeçalho -->
+                <tr> <!-- Linha -->
+                    <th>Produto</th> <!-- Coluna -->
+                    <th>Preço</th>
+                </tr>
+            </thead>
+            <tbody> <!-- Corpo -->
+                {% for product in products %}
+                <tr> <!-- Linha -->
+                    <!-- Aqui cria uma rota produto passando como argumento o id do produto -->
+                    <!-- 'Tabela' Tabela.argumento_que_quer_dar_de_entrada -->
+                    <td><a href="{% url 'product' product.id %}">{{ product.nome }}</a></td> <!-- Coluna -->
+                    <td>{{ product.preco }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <button onclick="teste();">Clique-me</button>
+    </center>
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

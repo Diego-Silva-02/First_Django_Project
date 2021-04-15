@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <h1>Produto</h1>
+
+    <table> <!-- Tabela -->
+        <thead> <!-- Cabeçalho -->
+            <tr> <!-- Linha -->
+                <th>Produto</th> <!-- Coluna -->
+                <th>Preço</th>
+                <th>Estoque</th>
+            </tr>
+        </thead>
+        <tbody> <!-- Corpo -->
+            <tr> <!-- Linha -->
+                <!-- Aqui cria uma rota produto passando como argumento o id do produto -->
+                <td><a href="{% url 'index' %}">{{ product.nome }}</a></td> <!-- Coluna -->
+                <td>{{ product.preco }}</td>
+                <td>{{ product.estoque }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
